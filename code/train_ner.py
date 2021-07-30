@@ -331,7 +331,7 @@ def train(args, train_dataset, model, tokenizer, labels, pad_token_label_id):
                         )
                         for key, value in results.items():
                             
-                            print(f"eval key: {key}")
+                            # print(f"eval key: {key}")
                             # print(f"eval value {value}")
 
                             if key == "report":
@@ -1089,6 +1089,7 @@ def main():
                 logging.WARN
             )  # Reduce logging
         logger.info("Evaluate the following checkpoints: %s", checkpoints)
+        print(f"evaluating the following checkpoints: {checkpoints}")
         for checkpoint in checkpoints:
             global_step = checkpoint.split("-")[-1] if len(checkpoints) > 1 else ""
             model = model_class.from_pretrained(checkpoint)
@@ -1105,6 +1106,7 @@ def main():
             if global_step:
                 result = {"{}_{}".format(global_step, k): v for k, v in result.items()}
             results.update(result)
+            
         output_eval_file = os.path.join(args.output_dir, "eval_results.txt")
         with open(output_eval_file, "w") as writer:
             for key in sorted(results.keys()):
@@ -1131,6 +1133,18 @@ def main():
         Task.current_task().upload_artifact(
                 args.test_result_file, artifact_object=output_test_results_file
         )
+        for key, value in results.items():
+            if key == "report":
+                print("not adding report to clearml scalars")
+            else:
+                          
+                # Added so that ClearML will track it
+                Task.current_task().get_logger().report_scalar(
+                    title="Test Results",
+                    series=key,
+                    value=value,
+                    iteration=0,
+                )            
         
         # Save predictions
         output_test_predictions_file = os.path.join(
