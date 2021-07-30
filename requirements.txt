@@ -1,0 +1,6 @@
+transformers 
+seqeval 
+ptvsd
+clearml
+torch
+tqdm

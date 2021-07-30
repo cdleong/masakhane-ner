@@ -15,6 +15,12 @@
 # limitations under the License.
 """ Fine-tuning the library models for named entity recognition on CoNLL-2003 (Bert or Roberta). """
 
+
+import shutil
+from clearml import Task 
+from pathlib import Path
+
+
 import argparse
 import glob
 import logging
@@ -111,6 +117,9 @@ def set_seed(args):
 
 
 def train(args, train_dataset, model, tokenizer, labels, pad_token_label_id):
+    
+
+
     """ Train the model """
     if args.local_rank in [-1, 0]:
         tb_writer = SummaryWriter()
@@ -400,6 +409,10 @@ def load_and_cache_examples(args, tokenizer, labels, pad_token_label_id, mode):
     return dataset
 
 
+
+
+
+
 def load_examples(args, mode):
     '''
     if args.local_rank not in [-1, 0] and not evaluate:
@@ -415,6 +428,75 @@ def load_examples(args, mode):
     return dataset
 
 
+
+def search_clearml_task_artifacts_and_download_most_recent(input_task_id, artifact_name):
+    input_task = Task.get_task(input_task_id)
+
+    matching_artifacts=[]
+    for art_name in input_task.artifacts:
+        
+        if artifact_name==art_name:
+            matching_artifact = input_task.artifacts[art_name]  # clearml.binding.artifacts.Artifact has fields name, timestamp, etc. 
+            matching_artifacts.append(matching_artifact)
+        
+    
+
+
+    most_recent_artifact = max(matching_artifacts, key=lambda art:art.timestamp)
+    artifact_path = most_recent_artifact.get_local_copy()
+    
+    return artifact_path
+
+def setup_pretrained_model_folder(pretrained_folder_path:str, needed_artifacts:list):
+    pretrained_model_folder = Path(pretrained_folder_path)
+    pretrained_model_folder.mkdir(exist_ok=True, parents=True)
+    
+    for needed_artifact in needed_artifacts:
+        local_path = search_clearml_task_artifacts_and_download_most_recent(needed_artifact)
+        desired_path = pretrained_model_folder/needed_artifact
+        new_path = shutil.move(local_path, desired_path)
+        print(f"downloaded artifact {needed_artifact} to {new_path}")
+        
+
+def clearml_task_setup(args):
+    task = Task.init(
+        project_name=args.clearml_project_name, 
+        output_uri=args.clearml_output_uri, 
+        task_name=args.clearml_task_name,
+    )
+
+    if args.clearml_queue_name:
+        task.execute_remotely(queue_name=args.clearml_queue_name)
+
+    # Download and setup paths for tokenizer, model, etc etc. 
+    # Previously we had done 
+    # aws s3 cp --recursive 
+    # to get sw_wiki_model_with_tokenizer_12774_steps model. 
+    # here's what was in there
+    # * merges.txt
+    # * config.json
+    # * optimizer.pt
+    # * pytorch_model.bin
+    # * README.md
+    # * rng_state.pth
+    # * scheduler.pt
+    # * tokenizer.json
+    # * training_args.bin
+    # * vocab.json
+
+    # We don't want optimizer.pt, that'll confuse MasakhaNER into thinking that it needs to use that optimizer.pt! 
+    # nor do we probably need training_args, or scheduler, or rng_state.pth
+    # So we edit train_ner.py to just download config.json, merges.txt, pytorch_model.bin, tokenizer.json, and vocab.json
+
+    # here we assume that model_name_or_path points to the _desired_ location to download the files to.  
+    needed_artifacts = ["config.json", "merges.txt", "pytorch_model.bin", "tokenizer.json", "vocab.json"]   
+    setup_pretrained_model_folder(args.model_name_or_path, needed_artifacts=needed_artifacts)
+
+    # thus, when we call train_ner.py and pass it 
+    # --model_name_or_path $PRETRAINED_MODEL
+    # it will download the things and put them there!
+    
+    
 
 def main():
     parser = argparse.ArgumentParser()
@@ -560,7 +642,27 @@ def main():
     parser.add_argument("--server_port", type=str, default="", help="For distant debugging.")
 
 
+
+    #############################
+    # CLEARML ARGS
+    #############################
+    parser.add_argument("--clearml_project_name", type=str)
+    parser.add_argument("--clearml_task_name", type=str)
+    parser.add_argument("--clearml_output_uri", type=str)
+    parser.add_argument("--clearml_queue_name", type=str)
+    parser.add_argument("--clearml_input_task_id", type=str)
+    # parser.add_argument("--clearml_", type=str)
+    # parser.add_argument("--clearml_", type=str)
+    
+    
+
+
     args = parser.parse_args()
+    
+    
+    
+    clearml_task_setup(args)
+    exit()
 
     if (
         os.path.exists(args.output_dir)
@@ -574,14 +676,14 @@ def main():
             )
         )
 
-    # Setup distant debugging if needed
-    if args.server_ip and args.server_port:
-        # Distant debugging - see https://code.visualstudio.com/docs/python/debugging#_attach-to-a-local-script
-        import ptvsd
+    # # Setup distant debugging if needed
+    # if args.server_ip and args.server_port:
+    #     # Distant debugging - see https://code.visualstudio.com/docs/python/debugging#_attach-to-a-local-script
+    #     import ptvsd
 
-        print("Waiting for debugger attach")
-        ptvsd.enable_attach(address=(args.server_ip, args.server_port), redirect_output=True)
-        ptvsd.wait_for_attach()
+    #     print("Waiting for debugger attach")
+    #     ptvsd.enable_attach(address=(args.server_ip, args.server_port), redirect_output=True)
+    #     ptvsd.wait_for_attach()
 
     # Setup CUDA, GPU & distributed training
     if args.local_rank == -1 or args.no_cuda:
