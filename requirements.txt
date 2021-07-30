@@ -1,7 +1,9 @@
-transformers 
+transformers==4.7.0
+tokenizers
 seqeval 
 ptvsd
 clearml
 torch
 tqdm
 tensorboard
+boto3
