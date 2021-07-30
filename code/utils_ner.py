@@ -22,6 +22,7 @@ import os
 
 logger = logging.getLogger(__name__)
 
+
 class InputExample(object):
     """A single training/test example for token classification."""
 
@@ -58,7 +59,13 @@ def read_examples_from_file_flexible(file_path, mode):
         for line in f:
             if line.startswith("-DOCSTART-") or line == "" or line == "\n":
                 if words:
-                    examples.append(InputExample(guid="{}-{}".format(mode, guid_index), words=words, labels=labels))
+                    examples.append(
+                        InputExample(
+                            guid="{}-{}".format(mode, guid_index),
+                            words=words,
+                            labels=labels,
+                        )
+                    )
                     guid_index += 1
                     words = []
                     labels = []
@@ -71,7 +78,11 @@ def read_examples_from_file_flexible(file_path, mode):
                     # Examples could have no label for mode = "test"
                     labels.append("O")
         if words:
-            examples.append(InputExample(guid="{}-{}".format(mode, guid_index), words=words, labels=labels))
+            examples.append(
+                InputExample(
+                    guid="{}-{}".format(mode, guid_index), words=words, labels=labels
+                )
+            )
     return examples
 
 
@@ -84,10 +95,16 @@ def read_examples_from_file(data_dir, mode):
         labels = []
         for line in f:
             line = line.strip()
-            if len(line) < 2  or line == "\n":
-                print(line.encode('utf-8'), words)
+            if len(line) < 2 or line == "\n":
+                print(line.encode("utf-8"), words)
                 if words:
-                    examples.append(InputExample(guid="{}-{}".format(mode, guid_index), words=words, labels=labels))
+                    examples.append(
+                        InputExample(
+                            guid="{}-{}".format(mode, guid_index),
+                            words=words,
+                            labels=labels,
+                        )
+                    )
                     guid_index += 1
                     words = []
                     labels = []
@@ -97,13 +114,17 @@ def read_examples_from_file(data_dir, mode):
                 words.append(splits[0])
                 if len(splits) > 1:
                     item = splits[-1].replace("\n", "")
-                    encoded_item=item
+                    encoded_item = item
                     labels.append(encoded_item)
                 else:
                     # Examples could have no label for mode = "test"
                     labels.append("O")
         if words:
-            examples.append(InputExample(guid="{}-{}".format(mode, guid_index), words=words, labels=labels))
+            examples.append(
+                InputExample(
+                    guid="{}-{}".format(mode, guid_index), words=words, labels=labels
+                )
+            )
     return examples
 
 
@@ -135,7 +156,7 @@ def convert_examples_to_features(
 
     features = []
     for (ex_index, example) in enumerate(examples):
-        #print(ex_index, len(example.words))
+        # print(ex_index, len(example.words))
         if ex_index % 10000 == 0:
             logger.info("Writing example %d of %d", ex_index, len(examples))
 
@@ -145,7 +166,9 @@ def convert_examples_to_features(
             word_tokens = tokenizer.tokenize(word)
             tokens.extend(word_tokens)
             # Use the real label id for the first token of the word, and padding ids for the remaining tokens
-            label_ids.extend([label_map[label]] + [pad_token_label_id] * (len(word_tokens) - 1))
+            label_ids.extend(
+                [label_map[label]] + [pad_token_label_id] * (len(word_tokens) - 1)
+            )
 
         # Account for [CLS] and [SEP] with "- 2" and with "- 3" for RoBERTa.
         special_tokens_count = 3 if sep_token_extra else 2
@@ -198,7 +221,9 @@ def convert_examples_to_features(
         padding_length = max_seq_length - len(input_ids)
         if pad_on_left:
             input_ids = ([pad_token] * padding_length) + input_ids
-            input_mask = ([0 if mask_padding_with_zero else 1] * padding_length) + input_mask
+            input_mask = (
+                [0 if mask_padding_with_zero else 1] * padding_length
+            ) + input_mask
             segment_ids = ([pad_token_segment_id] * padding_length) + segment_ids
             label_ids = ([pad_token_label_id] * padding_length) + label_ids
         else:
@@ -225,10 +250,14 @@ def convert_examples_to_features(
             logger.info("label_ids: %s", " ".join([str(x) for x in label_ids]))
 
         features.append(
-            InputFeatures(input_ids=input_ids, input_mask=input_mask, segment_ids=segment_ids, label_ids=label_ids)
+            InputFeatures(
+                input_ids=input_ids,
+                input_mask=input_mask,
+                segment_ids=segment_ids,
+                label_ids=label_ids,
+            )
         )
     return features
-
 
 
 def get_labels(path):
@@ -239,4 +268,14 @@ def get_labels(path):
             labels = ["O"] + labels
         return labels
     else:
-        return ["O", "B-DATE", "I-DATE", "B-PER", "I-PER", "B-ORG", "I-ORG", "B-LOC", "I-LOC"]
+        return [
+            "O",
+            "B-DATE",
+            "I-DATE",
+            "B-PER",
+            "I-PER",
+            "B-ORG",
+            "I-ORG",
+            "B-LOC",
+            "I-LOC",
+        ]
