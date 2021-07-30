@@ -4,3 +4,4 @@ ptvsd
 clearml
 torch
 tqdm
+tensorboard
