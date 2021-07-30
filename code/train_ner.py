@@ -429,8 +429,8 @@ def load_examples(args, mode):
 
 
 
-def search_clearml_task_artifacts_and_download_most_recent(input_task_id, artifact_name):
-    input_task = Task.get_task(input_task_id)
+def search_clearml_task_artifacts_and_download_most_recent(clearml_input_task_id, artifact_name):
+    input_task = Task.get_task(clearml_input_task_id)
 
     matching_artifacts=[]
     for art_name in input_task.artifacts:
@@ -447,12 +447,13 @@ def search_clearml_task_artifacts_and_download_most_recent(input_task_id, artifa
     
     return artifact_path
 
-def setup_pretrained_model_folder(pretrained_folder_path:str, needed_artifacts:list):
+def setup_pretrained_model_folder(pretrained_folder_path:str, clearml_input_task_id:str, needed_artifacts:list):
     pretrained_model_folder = Path(pretrained_folder_path)
     pretrained_model_folder.mkdir(exist_ok=True, parents=True)
+    print(f"Downloading needed artifacts {needed_artifacts} from ClearML task {clearml_input_task_id}, moving them to {pretrained_folder_path}")
     
     for needed_artifact in needed_artifacts:
-        local_path = search_clearml_task_artifacts_and_download_most_recent(needed_artifact)
+        local_path = search_clearml_task_artifacts_and_download_most_recent(clearml_input_task_id, needed_artifact)
         desired_path = pretrained_model_folder/needed_artifact
         new_path = shutil.move(local_path, desired_path)
         print(f"downloaded artifact {needed_artifact} to {new_path}")
@@ -496,7 +497,9 @@ def clearml_task_setup(args):
         "vocab.json", 
         "special_tokens_map.json"
         ]   
-    setup_pretrained_model_folder(args.model_name_or_path, needed_artifacts=needed_artifacts)
+    
+    if args.clearml_input_task_id:
+        setup_pretrained_model_folder(args.model_name_or_path, args.clearml_input_task_id, needed_artifacts=needed_artifacts)
 
     # thus, when we call train_ner.py and pass it 
     # --model_name_or_path $PRETRAINED_MODEL
