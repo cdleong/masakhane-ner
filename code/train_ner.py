@@ -456,10 +456,14 @@ def setup_pretrained_model_folder(pretrained_folder_path:str, clearml_input_task
 
     
     for needed_artifact in needed_artifacts:
-        local_path = search_clearml_task_artifacts_and_download_most_recent(input_task, needed_artifact)
         desired_path = pretrained_model_folder/needed_artifact
-        new_path = shutil.move(local_path, desired_path)
-        print(f"downloaded artifact {needed_artifact} to {new_path}")
+        if desired_path.is_file():
+            print(f"artifact {needed_artifact} is already at {desired_path}")
+        else:
+                
+            local_path = search_clearml_task_artifacts_and_download_most_recent(input_task, needed_artifact)        
+            new_path = shutil.move(local_path, desired_path)
+            print(f"downloaded artifact {needed_artifact} to {new_path}")
         
 
 def clearml_task_setup(args):
