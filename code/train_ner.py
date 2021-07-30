@@ -673,7 +673,6 @@ def main():
     clearml_task_setup(args)
     ls_command=f"ls -alh {args.model_name_or_path}"
     os.system(ls_command)
-    exit()
 
     if (
         os.path.exists(args.output_dir)
