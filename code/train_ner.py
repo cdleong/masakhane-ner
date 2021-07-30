@@ -487,9 +487,15 @@ def clearml_task_setup(args):
     # We don't want optimizer.pt, that'll confuse MasakhaNER into thinking that it needs to use that optimizer.pt! 
     # nor do we probably need training_args, or scheduler, or rng_state.pth
     # So we edit train_ner.py to just download config.json, merges.txt, pytorch_model.bin, tokenizer.json, and vocab.json
-
+    # special_tokens_map.json is another one, let's grab that too? 
     # here we assume that model_name_or_path points to the _desired_ location to download the files to.  
-    needed_artifacts = ["config.json", "merges.txt", "pytorch_model.bin", "tokenizer.json", "vocab.json"]   
+    needed_artifacts = ["config.json", 
+        "merges.txt", 
+        "pytorch_model.bin", 
+        "tokenizer.json", 
+        "vocab.json", 
+        "special_tokens_map.json"
+        ]   
     setup_pretrained_model_folder(args.model_name_or_path, needed_artifacts=needed_artifacts)
 
     # thus, when we call train_ner.py and pass it 
@@ -649,7 +655,7 @@ def main():
     parser.add_argument("--clearml_project_name", type=str)
     parser.add_argument("--clearml_task_name", type=str)
     parser.add_argument("--clearml_output_uri", type=str)
-    parser.add_argument("--clearml_queue_name", type=str)
+    parser.add_argument("--clearml_queue_name", type=str, default=None)
     parser.add_argument("--clearml_input_task_id", type=str)
     # parser.add_argument("--clearml_", type=str)
     # parser.add_argument("--clearml_", type=str)
@@ -662,6 +668,8 @@ def main():
     
     
     clearml_task_setup(args)
+    ls_command=f"ls -alh {args.model_name_or_path}"
+    os.system(ls_command)
     exit()
 
     if (
