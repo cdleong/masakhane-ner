@@ -505,34 +505,34 @@ def evaluate(args, model, tokenizer, labels, pad_token_label_id, mode, prefix=""
         logger.info("  %s = %s", key, str(results[key]))
     
 
-    # Added so that ClearML will track it
-    Task.current_task().get_logger().report_scalar(
-        title="clearml eval results",
-        series="f1",
-        value=results["f1"],
-        iteration=0,
-    )
+    # # Added so that ClearML will track it
+    # Task.current_task().get_logger().report_scalar(
+    #     title="clearml eval results",
+    #     series="f1",
+    #     value=results["f1"],
+    #     iteration=0,
+    # )
 
-    Task.current_task().get_logger().report_scalar(
-        title="clearml eval results",
-        series="precision",
-        value=results["precision"],
-        iteration=0,
-    )
+    # Task.current_task().get_logger().report_scalar(
+    #     title="clearml eval results",
+    #     series="precision",
+    #     value=results["precision"],
+    #     iteration=0,
+    # )
 
-    Task.current_task().get_logger().report_scalar(
-        title="clearml eval results",
-        series="recall",
-        value=results["recall"],
-        iteration=0,
-    )
+    # Task.current_task().get_logger().report_scalar(
+    #     title="clearml eval results",
+    #     series="recall",
+    #     value=results["recall"],
+    #     iteration=0,
+    # )
 
-    Task.current_task().get_logger().report_scalar(
-        title="clearml eval results",
-        series="loss",
-        value=results["loss"],
-        iteration=0,
-    )    
+    # Task.current_task().get_logger().report_scalar(
+    #     title="clearml eval results",
+    #     series="loss",
+    #     value=results["loss"],
+    #     iteration=0,
+    # )    
 
     
 
@@ -1109,6 +1109,9 @@ def main():
         with open(output_eval_file, "w") as writer:
             for key in sorted(results.keys()):
                 writer.write("{} = {}\n".format(key, str(results[key])))
+        Task.current_task().upload_artifact(
+                "eval_results.txt", artifact_object=output_eval_file
+        )
 
     if args.do_predict and args.local_rank in [-1, 0]:
         tokenizer = tokenizer_class.from_pretrained(
@@ -1120,10 +1123,15 @@ def main():
             args, model, tokenizer, labels, pad_token_label_id, mode="test"
         )
         # Save results
-        output_test_results_file = os.path.join(args.output_dir, args.test_result_file)
+        output_test_results_file = os.path.join(args.output_dir, args.test_result_file)        
         with open(output_test_results_file, "w") as writer:
             for key in sorted(result.keys()):
                 writer.write("{} = {}\n".format(key, str(result[key])))
+        
+        Task.current_task().upload_artifact(
+                args.test_result_file, artifact_object=output_test_results_file
+        )
+        
         # Save predictions
         output_test_predictions_file = os.path.join(
             args.output_dir, args.test_prediction_file
@@ -1149,6 +1157,9 @@ def main():
                             "Maximum sequence length exceeded: No prediction for '%s'.",
                             line.split()[0],
                         )
+        Task.current_task().upload_artifact(
+                args.test_prediction_file, artifact_object=output_test_predictions_file
+        )
 
     return results
 
