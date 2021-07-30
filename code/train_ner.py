@@ -465,6 +465,7 @@ def setup_pretrained_model_folder(pretrained_folder_path:str, clearml_input_task
 def clearml_task_setup(args):
     Task.ignore_requirements("numpy")
     Task.ignore_requirements("scipy")
+    Task.add_requirements("tensorboard")
     task = Task.init(
         project_name=args.clearml_project_name, 
         output_uri=args.clearml_output_uri, 
