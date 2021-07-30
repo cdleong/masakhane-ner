@@ -330,15 +330,48 @@ def train(args, train_dataset, model, tokenizer, labels, pad_token_label_id):
                             mode="dev",
                         )
                         for key, value in results.items():
-                            tb_writer.add_scalar(
-                                "eval_{}".format(key), value, global_step
-                            )
+                            
+                            print(f"eval key: {key}")
+                            # print(f"eval value {value}")
+
+                            if key == "report":
+                                print("not adding report to clearml scalars")
+                            else:
+                                tb_writer.add_scalar(
+                                    "eval_{}".format(key), value, global_step
+                                )                                
+                                # Added so that ClearML will track it
+                                Task.current_task().get_logger().report_scalar(
+                                    title="eval during training",
+                                    series=key,
+                                    value=value,
+                                    iteration=global_step,
+                                )
                     tb_writer.add_scalar("lr", scheduler.get_lr()[0], global_step)
+
+                    # Added so that ClearML will track it
+                    Task.current_task().get_logger().report_scalar(
+                        title="clearml train",
+                        series="lr",
+                        value=scheduler.get_lr()[0],
+                        iteration=global_step,
+                    )
                     tb_writer.add_scalar(
                         "loss",
                         (tr_loss - logging_loss) / args.logging_steps,
                         global_step,
                     )
+                    # Added so that ClearML will track it
+                    Task.current_task().get_logger().report_scalar(
+                        title="clearml train",
+                        series="loss",
+                        value=(tr_loss - logging_loss) / args.logging_steps,
+                        iteration=global_step,
+                    )
+
+                    
+
+                    
                     logging_loss = tr_loss
 
                 if (
@@ -470,6 +503,38 @@ def evaluate(args, model, tokenizer, labels, pad_token_label_id, mode, prefix=""
     logger.info("***** Eval results %s *****", prefix)
     for key in sorted(results.keys()):
         logger.info("  %s = %s", key, str(results[key]))
+    
+
+    # Added so that ClearML will track it
+    Task.current_task().get_logger().report_scalar(
+        title="clearml eval results",
+        series="f1",
+        value=results["f1"],
+        iteration=0,
+    )
+
+    Task.current_task().get_logger().report_scalar(
+        title="clearml eval results",
+        series="precision",
+        value=results["precision"],
+        iteration=0,
+    )
+
+    Task.current_task().get_logger().report_scalar(
+        title="clearml eval results",
+        series="recall",
+        value=results["recall"],
+        iteration=0,
+    )
+
+    Task.current_task().get_logger().report_scalar(
+        title="clearml eval results",
+        series="loss",
+        value=results["loss"],
+        iteration=0,
+    )    
+
+    
 
     return results, preds_list
 
@@ -588,8 +653,9 @@ def setup_pretrained_model_folder(
 def clearml_task_setup(args):
     Task.ignore_requirements("numpy")
     Task.ignore_requirements("scipy")
-    Task.add_requirements("tensorboard")
+    Task.add_requirements("tensorboardX")
     Task.add_requirements("charset-normalizer")
+
     task = Task.init(
         project_name=args.clearml_project_name,
         output_uri=args.clearml_output_uri,
@@ -1062,8 +1128,8 @@ def main():
         output_test_predictions_file = os.path.join(
             args.output_dir, args.test_prediction_file
         )
-        with open(output_test_predictions_file, "w") as writer:
-            with open(os.path.join(args.data_dir, "test.txt"), "r") as f:
+        with open(output_test_predictions_file, "w", encoding="utf-8") as writer:
+            with open(os.path.join(args.data_dir, "test.txt"), "r", encoding="utf-8") as f:
                 example_id = 0
                 for line in f:
                     if line.startswith("-DOCSTART-") or line == "" or line == "\n":
