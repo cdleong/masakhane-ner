@@ -95,36 +95,25 @@ def read_examples_from_file(data_dir, mode):
         labels = []
         for line in f:
             line = line.strip()
-            if len(line) < 2 or line == "\n":
-                print(line.encode("utf-8"), words)
+            if len(line) < 2  or line == "\n":
+                printable_line = line.encode("utf-8")
+                printable_words = [word.encode("utf-8") for word in words]
+                print(printable_line, printable_words)
                 if words:
-                    examples.append(
-                        InputExample(
-                            guid="{}-{}".format(mode, guid_index),
-                            words=words,
-                            labels=labels,
-                        )
-                    )
+                    examples.append(InputExample(guid="{}-{}".format(mode, guid_index), words=words, labels=labels))
                     guid_index += 1
                     words = []
                     labels = []
             else:
                 splits = line.split(" ")
-
                 words.append(splits[0])
                 if len(splits) > 1:
-                    item = splits[-1].replace("\n", "")
-                    encoded_item = item
-                    labels.append(encoded_item)
+                    labels.append(splits[-1].replace("\n", ""))
                 else:
                     # Examples could have no label for mode = "test"
                     labels.append("O")
         if words:
-            examples.append(
-                InputExample(
-                    guid="{}-{}".format(mode, guid_index), words=words, labels=labels
-                )
-            )
+            examples.append(InputExample(guid="{}-{}".format(mode, guid_index), words=words, labels=labels))
     return examples
 
 
