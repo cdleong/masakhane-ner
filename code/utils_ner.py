@@ -83,7 +83,7 @@ def read_examples_from_file(data_dir, mode):
         words = []
         labels = []
         for line in f:
-            line = line.strip()
+            line = line.strip().encode('utf-8')
             if len(line) < 2  or line == "\n":
                 print(line, words)
                 if words:
@@ -93,9 +93,12 @@ def read_examples_from_file(data_dir, mode):
                     labels = []
             else:
                 splits = line.split(" ")
-                words.append(splits[0])
+
+                words.append(splits[0].encode('utf-8'))
                 if len(splits) > 1:
-                    labels.append(splits[-1].replace("\n", ""))
+                    item = splits[-1].replace("\n", "")
+                    encoded_item=item.encode('utf-8')
+                    labels.append(encoded_item)
                 else:
                     # Examples could have no label for mode = "test"
                     labels.append("O")
