@@ -329,24 +329,28 @@ def train(args, train_dataset, model, tokenizer, labels, pad_token_label_id):
                             pad_token_label_id,
                             mode="dev",
                         )
-                        for key, value in results.items():
-                            
-                            # print(f"eval key: {key}")
-                            # print(f"eval value {value}")
 
-                            if key == "report":
-                                print("not adding report to clearml scalars")
-                            else:
-                                tb_writer.add_scalar(
-                                    "eval_{}".format(key), value, global_step
-                                )                                
-                                # Added so that ClearML will track it
-                                Task.current_task().get_logger().report_scalar(
-                                    title="eval during training",
-                                    series=key,
-                                    value=value,
-                                    iteration=global_step,
-                                )
+                        add_result_to_clearml_scalars(results, title="eval during training", iteration=global_step)
+                        # for key, value in results.items():
+                        #     # print(f"eval key: {key}")
+                        #     # print(f"eval value {value}")            
+                        #     if key == "report" or type(value)==str:
+                        #         print(f"type of {key} is {type(key)}")
+                        #         print(f"not adding {key} to clearml scalars")
+                        #     else:
+                        #         print(f"adding {key} to eval during training")
+                        #         tb_writer.add_scalar(
+                        #             "eval_{}".format(key), value, global_step
+                        #         )                                
+                        #         # Added so that ClearML will track it
+                        #         Task.current_task().get_logger().report_scalar(
+                        #             title="eval during training",
+                        #             series=key,
+                        #             value=value,
+                        #             iteration=global_step,
+                        #         )
+                    
+                    # log train lr
                     tb_writer.add_scalar("lr", scheduler.get_lr()[0], global_step)
 
                     # Added so that ClearML will track it
@@ -356,6 +360,8 @@ def train(args, train_dataset, model, tokenizer, labels, pad_token_label_id):
                         value=scheduler.get_lr()[0],
                         iteration=global_step,
                     )
+
+                    # log train loss
                     tb_writer.add_scalar(
                         "loss",
                         (tr_loss - logging_loss) / args.logging_steps,
@@ -503,36 +509,6 @@ def evaluate(args, model, tokenizer, labels, pad_token_label_id, mode, prefix=""
     logger.info("***** Eval results %s *****", prefix)
     for key in sorted(results.keys()):
         logger.info("  %s = %s", key, str(results[key]))
-    
-
-    # # Added so that ClearML will track it
-    # Task.current_task().get_logger().report_scalar(
-    #     title="clearml eval results",
-    #     series="f1",
-    #     value=results["f1"],
-    #     iteration=0,
-    # )
-
-    # Task.current_task().get_logger().report_scalar(
-    #     title="clearml eval results",
-    #     series="precision",
-    #     value=results["precision"],
-    #     iteration=0,
-    # )
-
-    # Task.current_task().get_logger().report_scalar(
-    #     title="clearml eval results",
-    #     series="recall",
-    #     value=results["recall"],
-    #     iteration=0,
-    # )
-
-    # Task.current_task().get_logger().report_scalar(
-    #     title="clearml eval results",
-    #     series="loss",
-    #     value=results["loss"],
-    #     iteration=0,
-    # )    
 
     
 
@@ -649,6 +625,27 @@ def setup_pretrained_model_folder(
             new_path = shutil.move(local_path, desired_path)
             print(f"downloaded artifact {needed_artifact} to {new_path}")
 
+
+def add_result_to_clearml_scalars(result, title:str, iteration=0):
+    try:
+        iteration=int(iteration)
+            
+        for key, value in result.items():
+            if key == "report" or type(value)==str:
+                print(f"type of {key} is {type(key)}")
+                print(f"not adding {key} to clearml scalars in {title}")
+            else:
+                print(f"adding {key} to {title}")
+                # Added so that ClearML will track it
+                Task.current_task().get_logger().report_scalar(
+                    title=title,
+                    series=key,
+                    value=value,
+                    iteration=iteration,
+                )  
+    except ValueError as exc:
+
+        print(f"Got a ValueError {exc}, Couldn't add scalar with result {result} and title {title} and iteration {iteration}")
 
 def clearml_task_setup(args):
     Task.ignore_requirements("numpy")
@@ -1090,6 +1087,8 @@ def main():
             )  # Reduce logging
         logger.info("Evaluate the following checkpoints: %s", checkpoints)
         print(f"evaluating the following checkpoints: {checkpoints}")
+        best_dev_f1 = 0.0
+        best_checkpoint = None
         for checkpoint in checkpoints:
             global_step = checkpoint.split("-")[-1] if len(checkpoints) > 1 else ""
             model = model_class.from_pretrained(checkpoint)
@@ -1104,9 +1103,39 @@ def main():
                 prefix=global_step,
             )
             if global_step:
+
+                print(f"In Checkpoint evaluations on dev set, at global step {global_step}, result = {result}")
+                add_result_to_clearml_scalars(result=result, title="Checkpoint evaluations at end on dev set", iteration=global_step)
+                
+                # Colin: tell me what the best F1 score is!
+                result_f1_score = result["f1"]
+                if result_f1_score > best_dev_f1:
+                    best_checkpoint=checkpoint
+                    best_dev_f1=result_f1_score
+                    print(f"new best checkpoint discovered! {checkpoint} has F1 score of {result_f1_score}")
+
                 result = {"{}_{}".format(global_step, k): v for k, v in result.items()}
+                
+
             results.update(result)
             
+
+            
+
+            
+        if best_checkpoint:
+            print(f"uploading best checkpoint {best_checkpoint}, with f1 score on dev set of {best_dev_f1}")
+            Task.current_task().get_logger().report_scalar(
+                title="Best Checkpoint",
+                series="best_dev_f1",
+                value=best_dev_f1,
+                iteration=0,
+            ) 
+            Task.current_task().upload_artifact(
+                "best_checkpoint", artifact_object=best_checkpoint
+            )
+
+
         output_eval_file = os.path.join(args.output_dir, "eval_results.txt")
         with open(output_eval_file, "w") as writer:
             for key in sorted(results.keys()):
@@ -1124,6 +1153,11 @@ def main():
         result, predictions = evaluate(
             args, model, tokenizer, labels, pad_token_label_id, mode="test"
         )
+
+        # Log test results
+        add_result_to_clearml_scalars(result, "Final results on Test set", iteration=0)
+
+
         # Save results
         output_test_results_file = os.path.join(args.output_dir, args.test_result_file)        
         with open(output_test_results_file, "w") as writer:
@@ -1133,18 +1167,7 @@ def main():
         Task.current_task().upload_artifact(
                 args.test_result_file, artifact_object=output_test_results_file
         )
-        for key, value in results.items():
-            if key == "report":
-                print("not adding report to clearml scalars")
-            else:
-                          
-                # Added so that ClearML will track it
-                Task.current_task().get_logger().report_scalar(
-                    title="Test Results",
-                    series=key,
-                    value=value,
-                    iteration=0,
-                )            
+          
         
         # Save predictions
         output_test_predictions_file = os.path.join(
