@@ -647,6 +647,13 @@ def add_result_to_clearml_scalars(result, title:str, iteration=0):
 
         print(f"Got a ValueError {exc}, Couldn't add scalar with result {result} and title {title} and iteration {iteration}")
 
+def has_subdirectories(path_to_check:Path):
+    subdirectories = [path for path in path_to_check.glob("*") if path.is_dir()]
+    if len(subdirectories)>0:
+        return True
+    else: 
+        return False
+
 def clearml_task_setup(args):
     Task.ignore_requirements("numpy")
     Task.ignore_requirements("scipy")
@@ -1015,6 +1022,8 @@ def main():
 
     logger.info("Training/evaluation parameters %s", args)
 
+
+    max_global_step = 0
     # Training
     if args.do_train:
         train_dataset = load_and_cache_examples(
@@ -1024,6 +1033,8 @@ def main():
         global_step, tr_loss = train(
             args, train_dataset, model, tokenizer, labels, pad_token_label_id
         )
+        if global_step > max_global_step:
+            max_global_step = global_step 
         # global_step, tr_loss = train_ner(args, train_dataset, model, tokenizer, labels, pad_token_label_id)
         logger.info(" global_step = %s, average loss = %s", global_step, tr_loss)
 
@@ -1045,6 +1056,9 @@ def main():
         global_step, tr_loss = train(
             args, train_dataset, model, tokenizer, labels, pad_token_label_id
         )
+        if global_step > max_global_step:
+            max_global_step = global_step         
+
         # global_step, tr_loss = train_ner(args, train_dataset, model, tokenizer, labels, pad_token_label_id)
         logger.info(" global_step = %s, average loss = %s", global_step, tr_loss)
 
@@ -1102,20 +1116,42 @@ def main():
                 mode="dev",
                 prefix=global_step,
             )
+
+
+            print(f"In Checkpoint evaluations on dev set, at global step {global_step}, result = {result}")
             if global_step:
 
-                print(f"In Checkpoint evaluations on dev set, at global step {global_step}, result = {result}")
+                
                 add_result_to_clearml_scalars(result=result, title="Checkpoint evaluations at end on dev set", iteration=global_step)
-                
-                # Colin: tell me what the best F1 score is!
-                result_f1_score = result["f1"]
-                if result_f1_score > best_dev_f1:
-                    best_checkpoint=checkpoint
-                    best_dev_f1=result_f1_score
-                    print(f"new best checkpoint discovered! {checkpoint} has F1 score of {result_f1_score}")
+            else:
+                # that means global_step is set to "", meaning it's the final model
+                # So it's just in "./output"
 
-                result = {"{}_{}".format(global_step, k): v for k, v in result.items()}
+                add_result_to_clearml_scalars(result=result, title="Checkpoint evaluations at end on dev set", iteration=max_global_step)
+
+                # it's the final model. 
+                original_path = Path(args.output_dir)
+                target_folder = original_path / f"final-model-{max_global_step}"
+                print(f"Making final-model folder at {target_folder}")
+                target_folder.mkdir(parents=True, exist_ok=True)
+                files_in_original_folder = [f for f in original_path.glob("*") if f.is_file()]
+                for file_to_move in files_in_original_folder:                    
+                    new_file_destination = target_folder /file_to_move.name
+                    print(f"copying {file_to_move} to {new_file_destination}")
+                    shutil.copy(file_to_move, new_file_destination)
                 
+                checkpoint = str(target_folder)
+                
+                
+            # Colin: tell me what the best F1 score is!
+            result_f1_score = result["f1"]
+            if result_f1_score > best_dev_f1:
+                best_checkpoint=checkpoint
+                best_dev_f1=result_f1_score
+                print(f"new best checkpoint discovered! {checkpoint} has F1 score of {result_f1_score} on dev set")
+
+            result = {"{}_{}".format(global_step, k): v for k, v in result.items()}
+            
 
             results.update(result)
             
@@ -1130,9 +1166,11 @@ def main():
                 series="best_dev_f1",
                 value=best_dev_f1,
                 iteration=0,
-            ) 
+            )
+            
+            
             Task.current_task().upload_artifact(
-                "best_checkpoint", artifact_object=best_checkpoint
+                f"best_checkpoint", artifact_object=best_checkpoint
             )
 
 
