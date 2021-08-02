@@ -1082,6 +1082,17 @@ def main():
         # Good practice: save your training arguments together with the trained model
         torch.save(args, os.path.join(args.output_dir, "training_args.bin"))
 
+        # upload final model files to ClearML. But don't go recursively into subfolders.
+        files_to_upload = [path for path in Path(args.output_dir).glob("*") if path.is_file()]
+        for file_to_upload in files_to_upload:
+            if file_to_upload.name == "training_args.bin":
+                pass # don't reupload it
+            else: 
+                Task.current_task().upload_artifact(
+                    f"final {file_to_upload.name}", artifact_object=file_to_upload
+                )
+
+
     # Evaluation
     results = {}
     if args.do_eval and args.local_rank in [-1, 0]:
@@ -1194,6 +1205,8 @@ def main():
 
         # Log test results
         add_result_to_clearml_scalars(result, "Final results on Test set", iteration=0)
+
+        
 
 
         # Save results
