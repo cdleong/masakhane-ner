@@ -179,6 +179,8 @@ h O
 i O
 i O
 . O
+
+
 θ O
 a O
 m O
@@ -307,6 +309,8 @@ i O
 a O
 3 O
 . O
+
+
 6 O
 k O
 a O
@@ -346,6 +350,8 @@ l O
 e O
 a O
 . O
+
+
 w O
 a O
 k O
@@ -514,6 +520,8 @@ i O
 a O
 2 O
 . O
+
+
 6 O
 , O
 w O
@@ -594,8 +602,12 @@ i O
 a O
 1 O
 . O
+
+
 4 O
 . O
+
+
 m O
 a O
 s O
@@ -676,6 +688,8 @@ i O
 z O
 o O
 . O
+
+
 w O
 a O
 w O
@@ -829,6 +843,8 @@ u I-PER
 m I-PER
 p I-PER
 . O
+
+
 t B-PER
 ɾ I-PER
 u I-PER
@@ -1116,6 +1132,8 @@ a O
 ɓ O
 a O
 . O
+
+
 w O
 a O
 z O
@@ -1275,6 +1293,8 @@ a O
 ɓ O
 u O
 . O
+
+
 t B-LOC
 ͡ I-LOC
 ʃ I-LOC
@@ -1317,6 +1337,8 @@ i O
 z O
 o O
 . O
+
+
 k O
 w O
 a O
@@ -1407,6 +1429,8 @@ a O
 1 O
 8 O
 . O
+
+
 2 O
 6 O
 k O
@@ -1440,6 +1464,8 @@ i O
 a O
 7 O
 . O
+
+
 6 O
 , O
 w O
@@ -1495,6 +1521,8 @@ a O
 2 O
 5 O
 . O
+
+
 8 O
 0 O
 k O
@@ -1530,8 +1558,12 @@ i O
 a O
 2 O
 . O
+
+
 4 O
 . O
+
+
 ɓ O
 e O
 i O
@@ -1675,6 +1707,8 @@ o O
 k O
 o O
 . O
+
+
 p O
 i O
 a O
@@ -1760,6 +1794,8 @@ i O
 t O
 a O
 . O
+
+
 ɓ O
 e O
 i O
@@ -1955,6 +1991,8 @@ i O
 w O
 a O
 . O
+
+
 t B-PER
 ɾ I-PER
 u I-PER
@@ -2329,6 +2367,8 @@ m O
 b O
 o O
 . O
+
+
 t B-PER
 ɾ I-PER
 u I-PER
@@ -2506,6 +2546,8 @@ i O
 k O
 a O
 . O
+
+
 s B-ORG
 a I-ORG
 u I-ORG
@@ -2719,6 +2761,8 @@ u O
 ɾ O
 a O
 . O
+
+
 n O
 o O
 m O
@@ -2875,6 +2919,8 @@ a O
 e O
 n O
 . O
+
+
 t B-PER
 ɾ I-PER
 u I-PER
@@ -3021,6 +3067,8 @@ t O
 ʃ O
 i O
 . O
+
+
 t B-PER
 ɾ I-PER
 u I-PER
@@ -3184,6 +3232,8 @@ a O
 i O
 s O
 . O
+
+
 t O
 a O
 n O
@@ -3284,6 +3334,8 @@ a O
 l O
 i O
 . O
+
+
 t B-PER
 ɾ I-PER
 u I-PER
@@ -3507,6 +3559,8 @@ i I-LOC
 1 I-DATE
 6 I-DATE
 . O
+
+
 t B-PER
 ɾ I-PER
 u I-PER
@@ -3573,6 +3627,8 @@ a O
 j O
 a O
 . O
+
+
 h O
 i O
 v O
@@ -3622,6 +3678,8 @@ n O
 ɡ O
 o O
 . O
+
+
 m O
 u O
 ɗ O
@@ -3772,6 +3830,8 @@ a O
 n O
 o O
 . O
+
+
 w O
 a O
 t O
@@ -3923,6 +3983,8 @@ a O
 l O
 a O
 . O
+
+
 s O
 p O
 i O
@@ -4135,6 +4197,8 @@ o O
 n O
 a O
 . O
+
+
 s O
 p O
 i O
@@ -4291,6 +4355,8 @@ o O
 t O
 e O
 . O
+
+
 “ O
 a O
 ʄ O
@@ -4384,6 +4450,8 @@ t O
 ʃ O
 o O
 . O
+
+
 w O
 a O
 ɓ O
@@ -4442,6 +4510,8 @@ a O
 k O
 e O
 . O
+
+
 m O
 a O
 t O
@@ -4472,6 +4542,8 @@ e O
 k O
 i O
 . O
+
+
 w O
 a O
 l O
@@ -4500,6 +4572,8 @@ w O
 a O
 o O
 . O
+
+
 s O
 i O
 t O
@@ -4514,6 +4588,8 @@ e O
 n O
 o O
 . O
+
+
 k O
 w O
 a O
@@ -4550,6 +4626,8 @@ a O
 w O
 a O
 ? O
+
+
 p O
 i O
 ɠ O
@@ -4573,6 +4651,8 @@ o O
 n O
 e O
 . O
+
+
 n O
 i O
 ɓ O
@@ -4588,6 +4668,8 @@ a O
 a O
 a O
 . O
+
+
 z O
 i O
 k O
@@ -4623,6 +4705,8 @@ o O
 t O
 e O
 . O
+
+
 w O
 a O
 n O
@@ -4644,6 +4728,8 @@ a O
 k O
 a O
 . O
+
+
 h O
 u O
 w O
@@ -4672,6 +4758,8 @@ i O
 j O
 o O
 . O
+
+
 ʄ O
 i O
 ɾ O
@@ -4698,6 +4786,8 @@ a O
 k O
 o O
 . O
+
+
 n O
 a O
 s O
@@ -4747,6 +4837,8 @@ i O
 k O
 e O
 . O
+
+
 , O
 ” O
 a O
@@ -4763,6 +4855,8 @@ i O
 k O
 a O
 . O
+
+
 m O
 w O
 e O
@@ -4915,6 +5009,8 @@ o O
 n O
 a O
 . O
+
+
 k O
 a O
 t O
@@ -5122,6 +5218,8 @@ a O
 ɾ O
 i O
 . O
+
+
 ɓ O
 i O
 l O
@@ -5197,6 +5295,8 @@ i O
 1 O
 9 O
 . O
+
+
 a O
 l O
 i O
@@ -5338,6 +5438,8 @@ e O
 l O
 i O
 . O
+
+
 m B-PER
 b I-PER
 o I-PER
@@ -5459,6 +5561,8 @@ n I-LOC
 i I-LOC
 a I-LOC
 . O
+
+
 k O
 i O
 o O
@@ -5632,6 +5736,8 @@ n O
 s O
 i O
 . O
+
+
 s O
 i O
 k O
@@ -5738,6 +5844,8 @@ n O
 w O
 a O
 . O
+
+
 a O
 m O
 e O
@@ -5926,6 +6034,8 @@ a O
 n O
 i O
 . O
+
+
 p O
 o O
 ʃ O
@@ -6103,6 +6213,8 @@ v O
 j O
 o O
 . O
+
+
 “ O
 f O
 e O
@@ -6209,6 +6321,8 @@ m O
 w O
 a O
 ? O
+
+
 u O
 n O
 a O
@@ -6234,6 +6348,8 @@ o O
 ʄ O
 a O
 . O
+
+
 n O
 a O
 k O
@@ -6290,6 +6406,8 @@ a O
 k O
 o O
 . O
+
+
 s O
 a O
 s O
@@ -6418,6 +6536,8 @@ a O
 k O
 a O
 . O
+
+
 s O
 p O
 i O
@@ -6458,6 +6578,8 @@ u O
 ɗ O
 i O
 . O
+
+
 h O
 i O
 l O
@@ -6482,6 +6604,8 @@ a O
 s O
 i O
 . O
+
+
 n O
 ɟ O
 i O
@@ -6522,6 +6646,8 @@ a O
 s O
 i O
 . O
+
+
 h O
 i O
 l O
@@ -6578,6 +6704,8 @@ u O
 ɗ O
 i O
 . O
+
+
 k O
 w O
 a O
@@ -6608,6 +6736,8 @@ u O
 ɾ O
 e O
 . O
+
+
 i O
 l O
 i O
@@ -6694,6 +6824,8 @@ i O
 z O
 o O
 . O
+
+
 n O
 a O
 w O
@@ -6722,6 +6854,8 @@ i O
 ʃ O
 a O
 . O
+
+
 ” O
 a O
 m O
@@ -6846,6 +6980,8 @@ o O
 ɠ O
 o O
 . O
+
+
 n B-PER
 d I-PER
 u I-PER
@@ -6945,6 +7081,8 @@ a O
 n O
 a O
 . O
+
+
 j O
 u O
 l O
@@ -6965,6 +7103,8 @@ t O
 ʃ O
 i O
 . O
+
+
 ʄ O
 i O
 e O
@@ -7019,6 +7159,8 @@ i O
 i O
 i O
 . O
+
+
 a O
 n O
 a O
@@ -7110,6 +7252,8 @@ a O
 k O
 e O
 . O
+
+
 h O
 i O
 v O
@@ -7153,6 +7297,8 @@ a O
 n O
 i O
 ? O
+
+
 w O
 a O
 n O
@@ -7171,6 +7317,8 @@ a O
 n O
 i O
 ? O
+
+
 h O
 i O
 z O
@@ -7210,6 +7358,8 @@ a O
 p O
 i O
 ? O
+
+
 h O
 u O
 k O
@@ -7252,6 +7402,8 @@ n O
 d O
 a O
 ? O
+
+
 h O
 u O
 k O
@@ -7288,6 +7440,8 @@ l O
 i O
 i O
 ? O
+
+
 w O
 a O
 p O
@@ -7303,6 +7457,8 @@ l O
 i O
 i O
 ? O
+
+
 u O
 n O
 a O
@@ -7337,6 +7493,8 @@ o O
 t O
 e O
 . O
+
+
 n O
 a O
 h O
@@ -7368,6 +7526,8 @@ n O
 i O
 a O
 . O
+
+
 h O
 a O
 l O
@@ -7385,6 +7545,8 @@ m O
 t O
 u O
 . O
+
+
 n O
 a O
 k O
@@ -7463,6 +7625,8 @@ a O
 n O
 i O
 . O
+
+
 s O
 i O
 ʄ O
@@ -7487,6 +7651,8 @@ a O
 w O
 a O
 . O
+
+
 w O
 a O
 z O
@@ -7657,6 +7823,8 @@ o O
 n O
 a O
 . O
+
+
 h O
 a O
 t O
@@ -7794,6 +7962,8 @@ a O
 k O
 e O
 . O
+
+
 ʄ B-PER
 o I-PER
 h I-PER
@@ -7830,6 +8000,8 @@ a O
 s O
 t O
 . O
+
+
 θ B-PER
 o I-PER
 m I-PER
@@ -7911,6 +8083,8 @@ o O
 n O
 a O
 . O
+
+
 “ O
 ɓ O
 a O
@@ -8135,6 +8309,8 @@ u O
 t O
 i O
 . O
+
+
 w O
 a O
 k O
@@ -8234,6 +8410,8 @@ k O
 u O
 u O
 . O
+
+
 k O
 a O
 t O
@@ -8439,6 +8617,8 @@ z O
 w O
 a O
 . O
+
+
 w O
 a O
 k O
@@ -8574,6 +8754,8 @@ a I-LOC
 j I-LOC
 a I-LOC
 . O
+
+
 i O
 ɗ O
 a O
@@ -8662,6 +8844,8 @@ o I-DATE
 s I-DATE
 i I-DATE
 . O
+
+
 s O
 e O
 n O
@@ -8799,6 +8983,8 @@ t I-ORG
 i I-ORG
 c I-ORG
 . O
+
+
 k O
 a O
 t O
@@ -8992,6 +9178,8 @@ a I-LOC
 n I-LOC
 i I-LOC
 . O
+
+
 s B-PER
 a I-PER
 n I-PER
@@ -9170,6 +9358,8 @@ i O
 n O
 e O
 . O
+
+
 s B-PER
 a I-PER
 n I-PER
@@ -9293,6 +9483,8 @@ h O
 u O
 u O
 . O
+
+
 “ O
 t O
 u O
@@ -9323,6 +9515,8 @@ u I-LOC
 s I-LOC
 e I-LOC
 . O
+
+
 n O
 i O
 t O
@@ -9475,6 +9669,8 @@ m O
 i O
 i O
 . O
+
+
 s O
 e O
 n O
@@ -9660,6 +9856,8 @@ a O
 n O
 i O
 . O
+
+
 h O
 a O
 t O
@@ -9868,6 +10066,8 @@ u O
 a O
 o O
 . O
+
+
 ɓ B-PER
 i I-PER
 ɗ I-PER
@@ -9983,6 +10183,8 @@ a I-LOC
 n I-LOC
 i I-LOC
 . O
+
+
 " O
 " O
 " O
@@ -10033,6 +10235,8 @@ a O
 n O
 a O
 . O
+
+
 i O
 n O
 a O
@@ -10060,6 +10264,8 @@ n O
 ɡ O
 u O
 . O
+
+
 n O
 a O
 ð O
@@ -10155,6 +10361,8 @@ a O
 n O
 a O
 . O
+
+
 n O
 i O
 t O
@@ -10246,6 +10454,8 @@ j O
 a O
 o O
 . O
+
+
 ɓ B-PER
 i I-PER
 ɗ I-PER
@@ -10373,6 +10583,8 @@ j O
 a O
 o O
 . O
+
+
 h O
 i O
 i O
@@ -10476,6 +10688,8 @@ k O
 i O
 o O
 . O
+
+
 m O
 w O
 a O
@@ -10514,6 +10728,8 @@ t I-PER
 o I-PER
 n I-PER
 . O
+
+
 ɓ O
 a O
 a O
@@ -10693,6 +10909,8 @@ i O
 n O
 e O
 . O
+
+
 w O
 a O
 l O
@@ -10811,6 +11029,8 @@ i O
 z O
 a O
 . O
+
+
 w O
 a O
 l O
@@ -10960,6 +11180,8 @@ s O
 a O
 a O
 . O
+
+
 “ O
 t O
 u O
@@ -11053,6 +11275,8 @@ i I-PER
 e I-PER
 n I-PER
 . O
+
+
 “ O
 n O
 a O
@@ -11093,6 +11317,8 @@ u O
 z O
 i O
 . O
+
+
 u O
 n O
 a O
@@ -11185,6 +11411,8 @@ j O
 a O
 o O
 . O
+
+
 s B-PER
 a I-PER
 n I-PER
@@ -11408,6 +11636,8 @@ i I-PER
 e I-PER
 n I-PER
 . O
+
+
 i O
 m O
 e O
@@ -11449,6 +11679,8 @@ o I-LOC
 n I-LOC
 ɗ I-LOC
 c I-LOC
+
+
 u O
 ɓ O
 a O
@@ -11597,6 +11829,8 @@ a I-LOC
 n I-LOC
 i I-LOC
 . O
+
+
 a O
 m O
 e O
@@ -11725,6 +11959,8 @@ a O
 ɾ O
 ɗ O
 . O
+
+
 k O
 a O
 t O
@@ -11852,6 +12088,8 @@ u O
 n O
 i O
 . O
+
+
 t O
 a O
 m O
@@ -11973,6 +12211,8 @@ i O
 w O
 e O
 . O
+
+
 w O
 i O
 z O
@@ -12246,6 +12486,8 @@ a I-DATE
 1 I-DATE
 2 I-DATE
 . O
+
+
 i O
 w O
 a O
@@ -12333,6 +12575,8 @@ e O
 l O
 a O
 . O
+
+
 ɓ B-PER
 u I-PER
 ɾ I-PER
@@ -12382,6 +12626,8 @@ a I-LOC
 e I-LOC
 l I-LOC
 . O
+
+
 m O
 w O
 e O
@@ -12483,6 +12729,8 @@ a I-LOC
 n I-LOC
 i I-LOC
 . O
+
+
 m O
 w O
 e O
@@ -12589,6 +12837,8 @@ a O
 k O
 e O
 . O
+
+
 ɾ B-LOC
 u I-LOC
 s I-LOC
@@ -12702,6 +12952,8 @@ i O
 w O
 a O
 . O
+
+
 , O
 u O
 w O
@@ -12908,6 +13160,8 @@ a O
 k O
 e O
 . O
+
+
 m O
 z O
 a O
@@ -13074,6 +13328,8 @@ c I-LOC
 o I-LOC
 w I-LOC
 . O
+
+
 i B-PER
 s I-PER
 s I-PER
@@ -13191,6 +13447,8 @@ s I-LOC
 i I-LOC
 a I-LOC
 . O
+
+
 ɾ B-LOC
 u I-LOC
 s I-LOC
@@ -13361,8 +13619,12 @@ o O
 m O
 u O
 . O
+
+
 s O
 . O
+
+
 c O
 o O
 n O
@@ -13393,6 +13655,8 @@ a O
 u O
 ɗ O
 . O
+
+
 u O
 ɓ O
 a O
@@ -13656,6 +13920,8 @@ a O
 ɾ O
 ɗ O
 . O
+
+
 i O
 n O
 a O
@@ -13761,6 +14027,8 @@ o O
 l O
 ɗ O
 . O
+
+
 k O
 a O
 t O
@@ -13888,6 +14156,8 @@ u O
 n O
 i O
 . O
+
+
 θ O
 e O
 s O
@@ -13947,8 +14217,12 @@ o O
 e O
 u O
 . O
+
+
 s O
 . O
+
+
 s O
 t O
 a O
@@ -14006,6 +14280,8 @@ t O
 e O
 ɗ O
 . O
+
+
 t O
 a O
 m O
@@ -14129,12 +14405,18 @@ i O
 w O
 e O
 . O
+
+
 θ O
 e O
 u O
 . O
+
+
 s O
 . O
+
+
 ʄ O
 u O
 s O
@@ -14332,6 +14614,8 @@ e I-DATE
 1 I-DATE
 2 I-DATE
 . O
+
+
 w O
 i O
 z O
@@ -14599,6 +14883,8 @@ a I-DATE
 1 I-DATE
 2 I-DATE
 . O
+
+
 " O
 " O
 " O
@@ -14701,8 +14987,12 @@ s O
 ( O
 e O
 . O
+
+
 ɠ O
 . O
+
+
 , O
 ɗ O
 e O
@@ -14773,6 +15063,8 @@ o O
 n O
 s O
 . O
+
+
 m O
 a O
 ɲ O
@@ -14811,8 +15103,12 @@ t O
 o O
 u O
 . O
+
+
 s O
 . O
+
+
 c O
 i O
 t O
@@ -14822,6 +15118,8 @@ e O
 n O
 s O
 . O
+
+
 θ O
 e O
 s O
@@ -14981,6 +15279,8 @@ e O
 n O
 t O
 . O
+
+
 i O
 f O
 c O
@@ -15037,6 +15337,8 @@ s O
 o O
 n O
 . O
+
+
 i O
 w O
 a O
@@ -15124,6 +15426,8 @@ e O
 l O
 a O
 . O
+
+
 ɓ B-PER
 u I-PER
 ɾ I-PER
@@ -15174,6 +15478,8 @@ a I-LOC
 e I-LOC
 l I-LOC
 . O
+
+
 ɓ B-PER
 u I-PER
 ɾ I-PER
@@ -15223,6 +15529,8 @@ a I-LOC
 e I-LOC
 l I-LOC
 . O
+
+
 l O
 a O
 s O
@@ -15316,6 +15624,8 @@ e O
 c O
 t O
 . O
+
+
 m O
 w O
 e O
@@ -15417,6 +15727,8 @@ a I-LOC
 n I-LOC
 i I-LOC
 . O
+
+
 o O
 n O
 n B-DATE
@@ -15495,6 +15807,8 @@ s O
 t O
 s O
 . O
+
+
 m O
 w O
 e O
@@ -15601,6 +15915,8 @@ a O
 k O
 e O
 . O
+
+
 ɾ B-LOC
 u I-LOC
 s I-LOC
@@ -15641,8 +15957,12 @@ o O
 a O
 u O
 . O
+
+
 s O
 . O
+
+
 - O
 i B-LOC
 s I-LOC
@@ -15749,6 +16069,8 @@ a O
 n O
 a O
 . O
+
+
 ɾ B-LOC
 u I-LOC
 s I-LOC
@@ -15862,6 +16184,8 @@ i O
 w O
 a O
 . O
+
+
 , O
 a O
 p O
@@ -16033,6 +16357,8 @@ i O
 a O
 j O
 . O
+
+
 u O
 w O
 e O
@@ -16238,6 +16564,8 @@ a O
 k O
 e O
 . O
+
+
 ɓ O
 o O
 ɾ O
@@ -16359,6 +16687,8 @@ o O
 ɾ O
 t O
 . O
+
+
 m O
 z O
 a O
@@ -16525,6 +16855,8 @@ c I-LOC
 o I-LOC
 w I-LOC
 . O
+
+
 i B-PER
 s I-PER
 s I-PER
@@ -16618,6 +16950,8 @@ s I-LOC
 i I-LOC
 a I-LOC
 . O
+
+
 i B-PER
 s I-PER
 s I-PER
@@ -16735,6 +17069,8 @@ s I-LOC
 i I-LOC
 a I-LOC
 . O
+
+
 ɾ O
 a O
 i O
@@ -16868,6 +17204,8 @@ i O
 w O
 a O
 . O
+
+
 k O
 i O
 o O
@@ -17019,6 +17357,8 @@ n I-LOC
 u I-LOC
 l I-LOC
 . O
+
+
 e B-PER
 ɾ I-PER
 ɗ I-PER
@@ -17102,6 +17442,8 @@ a O
 ɾ O
 i O
 . O
+
+
 " O
 " O
 " O
@@ -17229,6 +17571,8 @@ e O
 m O
 a O
 . O
+
+
 a O
 m O
 e O
@@ -17369,6 +17713,8 @@ i O
 j O
 o O
 . O
+
+
 ɾ O
 a O
 i O
@@ -17462,6 +17808,8 @@ j I-LOC
 i I-LOC
 a I-LOC
 . O
+
+
 m O
 a O
 t O
@@ -17640,6 +17988,8 @@ a I-PER
 f I-PER
 i I-PER
 . O
+
+
 m O
 e O
 ɾ O
@@ -17745,6 +18095,8 @@ a I-LOC
 n I-LOC
 i I-LOC
 . O
+
+
 i O
 m O
 e O
@@ -17785,6 +18137,8 @@ n I-LOC
 ɗ I-LOC
 c I-LOC
 . O
+
+
 z O
 a O
 i O
@@ -17950,6 +18304,8 @@ n I-LOC
 d I-LOC
 i I-LOC
 . O
+
+
 t O
 a O
 ɾ O
@@ -18003,6 +18359,8 @@ i O
 z O
 o O
 . O
+
+
 m O
 k O
 a O
@@ -18158,6 +18516,8 @@ u O
 l O
 a O
 . O
+
+
 a O
 w O
 a O
@@ -18383,6 +18743,8 @@ i O
 p O
 o O
 . O
+
+
 t O
 a O
 a O
@@ -18540,6 +18902,8 @@ i O
 l O
 o O
 . O
+
+
 h O
 i O
 i O
@@ -18640,6 +19004,8 @@ a O
 t O
 i O
 . O
+
+
 i O
 m O
 e O
@@ -18696,6 +19062,8 @@ n I-LOC
 , I-LOC
 ɗ I-LOC
 c I-LOC
+
+
 m O
 i O
 i O
@@ -18776,6 +19144,8 @@ e I-LOC
 z I-LOC
 a I-LOC
 . O
+
+
 p O
 o O
 l O
@@ -18915,6 +19285,8 @@ d I-LOC
 o I-LOC
 n I-LOC
 . O
+
+
 t O
 a O
 a O
@@ -18989,6 +19361,8 @@ o O
 ʄ O
 a O
 . O
+
+
 w O
 a O
 t O
@@ -19117,6 +19491,8 @@ i O
 t O
 a O
 . O
+
+
 m O
 t O
 u O
@@ -19213,6 +19589,8 @@ a O
 ʄ O
 i O
 . O
+
+
 w O
 a O
 z O
@@ -19295,6 +19673,8 @@ u O
 w O
 a O
 . O
+
+
 i O
 m O
 e O
@@ -19335,6 +19715,8 @@ n I-LOC
 ɗ I-LOC
 c I-LOC
 . O
+
+
 ɾ O
 a O
 i O
@@ -19493,6 +19875,8 @@ a O
 l O
 i O
 . O
+
+
 h O
 u O
 u O
@@ -19616,6 +20000,8 @@ i I-LOC
 c I-LOC
 o I-LOC
 . O
+
+
 k O
 i O
 o O
@@ -19857,6 +20243,8 @@ t O
 ʃ O
 o O
 . O
+
+
 p O
 i O
 a O
@@ -19992,6 +20380,8 @@ a I-DATE
 n I-DATE
 o I-DATE
 . O
+
+
 w O
 a O
 ɗ O
@@ -20219,6 +20609,8 @@ u I-PER
 m I-PER
 p I-PER
 . O
+
+
 l O
 a O
 k O
@@ -20408,6 +20800,8 @@ i I-DATE
 s I-DATE
 i I-DATE
 . O
+
+
 m O
 ɠ O
 o O
@@ -20553,6 +20947,8 @@ i I-DATE
 s I-DATE
 i I-DATE
 . O
+
+
 m O
 a O
 t O
@@ -20707,6 +21103,8 @@ a I-PER
 ɾ I-PER
 j I-PER
 . O
+
+
 m O
 a O
 p O
@@ -20831,10 +21229,14 @@ a O
 3 O
 8 O
 . O
+
+
 5 O
 7 O
 ” O
 . O
+
+
 s B-ORG
 a I-ORG
 u I-ORG
@@ -20993,6 +21395,8 @@ e I-ORG
 n I-ORG
 i I-ORG
 . O
+
+
 n O
 o O
 m O
@@ -21132,6 +21536,8 @@ u O
 ɾ O
 u O
 . O
+
+
 ɾ O
 a O
 i O
@@ -21193,6 +21599,8 @@ a O
 k O
 e O
 . O
+
+
 a O
 l O
 i O
@@ -21313,6 +21721,8 @@ a O
 6 I-DATE
 0 I-DATE
 . O
+
+
 w O
 i O
 z O
@@ -21715,6 +22125,8 @@ o O
 l O
 a O
 . O
+
+
 ʃ O
 i O
 ɾ O
@@ -21957,6 +22369,8 @@ a I-LOC
 a I-LOC
 m I-LOC
 . O
+
+
 t B-LOC
 a I-LOC
 n I-LOC
@@ -22172,6 +22586,8 @@ i O
 ɗ O
 i O
 . O
+
+
 w O
 i O
 z O
@@ -22255,6 +22671,8 @@ a I-LOC
 n I-LOC
 i I-LOC
 . O
+
+
 m O
 a O
 a O
@@ -22480,6 +22898,8 @@ u O
 0 O
 0 O
 . O
+
+
 t B-LOC
 a I-LOC
 n I-LOC
@@ -22536,6 +22956,8 @@ i O
 w O
 a O
 . O
+
+
 k O
 a O
 t O
@@ -22721,6 +23143,8 @@ o O
 l O
 a O
 . O
+
+
 ɾ O
 a O
 i O
@@ -22928,6 +23352,8 @@ i I-DATE
 s I-DATE
 i I-DATE
 . O
+
+
 ɾ O
 a O
 i O
@@ -23078,6 +23504,8 @@ i O
 f O
 a O
 . O
+
+
 ɓ O
 a O
 a O
@@ -23211,6 +23639,8 @@ a O
 l O
 i O
 . O
+
+
 k O
 a O
 ɾ O
@@ -23420,6 +23850,8 @@ a O
 n O
 o O
 . O
+
+
 m B-LOC
 a I-LOC
 ɾ I-LOC
@@ -23530,6 +23962,8 @@ h O
 u O
 o O
 . O
+
+
 i O
 m O
 e O
@@ -23570,6 +24004,8 @@ n I-LOC
 ɗ I-LOC
 c I-LOC
 . O
+
+
 w O
 a O
 n O
@@ -23821,6 +24257,8 @@ w O
 a O
 o O
 . O
+
+
 w O
 a O
 n O
@@ -23983,6 +24421,8 @@ i I-DATE
 l I-DATE
 i I-DATE
 . O
+
+
 k O
 a O
 u O
@@ -24278,6 +24718,8 @@ e O
 z O
 o O
 . O
+
+
 ɓ B-PER
 a I-PER
 ʃ I-PER
@@ -24424,6 +24866,8 @@ a O
 l O
 i O
 . O
+
+
 a O
 l O
 i O
@@ -24675,6 +25119,8 @@ e O
 k O
 i O
 . O
+
+
 “ O
 m O
 a O
@@ -25010,6 +25456,8 @@ e O
 m O
 a O
 . O
+
+
 a O
 m O
 e O
@@ -25232,6 +25680,8 @@ a I-LOC
 a I-LOC
 m I-LOC
 . O
+
+
 ɓ B-PER
 a I-PER
 ʃ I-PER
@@ -25386,6 +25836,8 @@ o O
 ʄ O
 a O
 . O
+
+
 “ O
 t O
 a O
@@ -25549,6 +26001,8 @@ n I-PER
 ɡ I-PER
 e I-PER
 . O
+
+
 a O
 l O
 i O
@@ -25832,6 +26286,8 @@ a O
 m O
 a O
 . O
+
+
 i O
 m O
 e O
@@ -25872,6 +26328,8 @@ n I-LOC
 ɗ I-LOC
 c I-LOC
 . O
+
+
 m O
 a O
 a O
@@ -26178,6 +26636,8 @@ v B-ORG
 o I-ORG
 a I-ORG
 . O
+
+
 e B-PER
 l I-PER
 ɗ I-PER
@@ -26313,6 +26773,8 @@ m O
 b O
 a O
 . O
+
+
 a O
 l O
 i O
@@ -26360,6 +26822,8 @@ h O
 i O
 i O
 . O
+
+
 e B-PER
 l I-PER
 ɗ I-PER
@@ -26544,6 +27008,8 @@ u O
 m O
 o O
 . O
+
+
 a O
 l O
 i O
@@ -26670,6 +27136,8 @@ a O
 n O
 o O
 . O
+
+
 e B-PER
 l I-PER
 ɗ I-PER
@@ -26761,6 +27229,8 @@ a O
 ʄ O
 i O
 . O
+
+
 m O
 a O
 a O
@@ -26832,6 +27302,8 @@ a O
 t O
 e O
 . O
+
+
 z O
 a O
 i O
@@ -26897,6 +27369,8 @@ a O
 n O
 o O
 . O
+
+
 ʄ O
 u O
 m O
@@ -27063,6 +27537,8 @@ u O
 m O
 o O
 . O
+
+
 ɠ O
 a O
 z O
@@ -27377,6 +27853,8 @@ i I-DATE
 1 I-DATE
 2 I-DATE
 . O
+
+
 “ O
 w O
 a O
@@ -27810,6 +28288,8 @@ i O
 n O
 e O
 . O
+
+
 ʄ O
 u O
 m O
@@ -28090,6 +28570,8 @@ m O
 i O
 a O
 . O
+
+
 l O
 a O
 k O
@@ -28338,6 +28820,8 @@ a O
 m O
 u O
 . O
+
+
 “ O
 t O
 u O
@@ -28470,6 +28954,8 @@ n I-LOC
 i I-LOC
 a I-LOC
 . O
+
+
 l O
 a O
 k O
@@ -28695,6 +29181,8 @@ o O
 t O
 e O
 . O
+
+
 ɾ B-PER
 a I-PER
 h I-PER
@@ -29045,6 +29533,8 @@ i I-ORG
 f I-ORG
 a I-ORG
 . O
+
+
 m O
 k O
 u O
@@ -29266,6 +29756,8 @@ u O
 j O
 o O
 . O
+
+
 h O
 a O
 k O
@@ -29316,6 +29808,8 @@ a I-LOC
 i I-LOC
 a I-LOC
 . O
+
+
 m O
 s O
 i O
@@ -29435,6 +29929,8 @@ i I-DATE
 k I-DATE
 u I-DATE
 . O
+
+
 a O
 l O
 i O
@@ -29599,6 +30095,8 @@ i I-ORG
 f I-ORG
 a I-ORG
 . O
+
+
 k O
 a O
 t O
@@ -29691,6 +30189,8 @@ i O
 i O
 ” O
 . O
+
+
 w O
 a O
 f O
@@ -29875,6 +30375,8 @@ i I-DATE
 s I-DATE
 i I-DATE
 . O
+
+
 h O
 a O
 j O
@@ -30035,6 +30537,8 @@ a I-DATE
 1 I-DATE
 8 I-DATE
 . O
+
+
 w O
 a O
 n O
@@ -30196,6 +30700,8 @@ i O
 l O
 o O
 . O
+
+
 w O
 a O
 n O
@@ -30419,6 +30925,8 @@ o I-LOC
 ɾ I-LOC
 c I-LOC
 . O
+
+
 m B-PER
 o I-PER
 ɣ I-PER
@@ -30738,6 +31246,8 @@ i B-LOC
 a I-LOC
 n I-LOC
 . O
+
+
 m B-PER
 o I-PER
 ɣ I-PER
@@ -30925,6 +31435,8 @@ i B-LOC
 a I-LOC
 n I-LOC
 . O
+
+
 m O
 w O
 a O
@@ -31133,6 +31645,8 @@ o O
 p O
 o O
 . O
+
+
 m O
 a O
 z O
@@ -31396,6 +31910,8 @@ a O
 t O
 i O
 . O
+
+
 a O
 k O
 i O
@@ -31563,6 +32079,8 @@ a O
 1 I-DATE
 5 I-DATE
 . O
+
+
 o O
 ɲ O
 o O
@@ -31887,6 +32405,8 @@ a I-LOC
 n I-LOC
 i I-LOC
 . O
+
+
 ɾ O
 a O
 t O
@@ -31949,6 +32469,8 @@ n O
 w O
 a O
 . O
+
+
 s O
 a O
 f O
@@ -32111,6 +32633,8 @@ u O
 i O
 a O
 . O
+
+
 m O
 a O
 h O
@@ -32343,6 +32867,8 @@ o O
 ʄ O
 a O
 . O
+
+
 k B-PER
 a I-PER
 m I-PER
@@ -32519,6 +33045,8 @@ a O
 n O
 i O
 . O
+
+
 v B-PER
 i I-PER
 t I-PER
@@ -32599,6 +33127,8 @@ i O
 j O
 o O
 . O
+
+
 m O
 a O
 ɾ O
@@ -32830,6 +33360,8 @@ a O
 s O
 a O
 . O
+
+
 p O
 o O
 l O
@@ -32911,6 +33443,8 @@ a O
 ɾ O
 a O
 . O
+
+
 p O
 o O
 l O
@@ -33007,6 +33541,8 @@ u O
 ɠ O
 u O
 . O
+
+
 i O
 m O
 e O
@@ -33056,6 +33592,8 @@ o I-LOC
 m I-LOC
 a I-LOC
 . O
+
+
 k O
 i O
 k O
@@ -33169,6 +33707,8 @@ m I-DATE
 a I-DATE
 a I-DATE
 . O
+
+
 k O
 w O
 a O
@@ -33250,6 +33790,8 @@ o O
 t O
 o O
 . O
+
+
 l O
 a O
 k O
@@ -33386,6 +33928,8 @@ s I-ORG
 s I-ORG
 a I-ORG
 . O
+
+
 m O
 t O
 a O
@@ -33484,6 +34028,8 @@ o I-ORG
 u I-ORG
 t I-ORG
 . O
+
+
 v O
 i O
 k O
@@ -33559,6 +34105,8 @@ s I-ORG
 s I-ORG
 a I-ORG
 . O
+
+
 h O
 i O
 v O
@@ -33663,6 +34211,8 @@ a O
 u O
 u O
 . O
+
+
 k O
 w O
 a O
@@ -33977,6 +34527,8 @@ a O
 n O
 a O
 . O
+
+
 m O
 w O
 a O
@@ -34166,6 +34718,8 @@ m I-LOC
 e I-LOC
 n I-LOC
 . O
+
+
 m O
 a O
 z O
@@ -34349,6 +34903,8 @@ i O
 k O
 i O
 . O
+
+
 u O
 t O
 u O
@@ -34480,6 +35036,8 @@ i O
 ɗ O
 a O
 . O
+
+
 p O
 i O
 a O
@@ -34557,6 +35115,8 @@ a I-LOC
 i I-LOC
 a I-LOC
 . O
+
+
 p O
 i O
 a O
@@ -34712,6 +35272,8 @@ m I-LOC
 e I-LOC
 n I-LOC
 . O
+
+
 h O
 i O
 i O
@@ -34796,6 +35358,8 @@ i O
 n O
 i O
 . O
+
+
 a B-PER
 i I-PER
 ɗ I-PER
@@ -34986,6 +35550,8 @@ a I-LOC
 i I-LOC
 a I-LOC
 . O
+
+
 ɾ O
 a O
 i O
@@ -35147,6 +35713,8 @@ a O
 j O
 o O
 . O
+
+
 k O
 w O
 a O
@@ -35315,6 +35883,8 @@ a I-LOC
 i I-LOC
 a I-LOC
 . O
+
+
 l O
 a O
 k O
@@ -35427,6 +35997,8 @@ a O
 ɓ O
 u O
 . O
+
+
 k O
 u O
 f O
@@ -35514,6 +36086,8 @@ a B-LOC
 e I-LOC
 n I-LOC
 . O
+
+
 m O
 f O
 a O
@@ -35592,6 +36166,8 @@ l O
 i O
 a O
 . O
+
+
 a O
 ɓ O
 ɗ O
@@ -35653,6 +36229,8 @@ i O
 v O
 u O
 . O
+
+
 n O
 a O
 o O
@@ -35732,6 +36310,8 @@ m O
 ʄ O
 i O
 . O
+
+
 a O
 m O
 a O
@@ -35765,6 +36345,8 @@ i O
 n O
 i O
 . O
+
+
 k O
 u O
 l O
@@ -35922,6 +36504,8 @@ u O
 ɾ O
 a O
 . O
+
+
 k O
 i O
 t O
@@ -36027,6 +36611,8 @@ a O
 s O
 a O
 . O
+
+
 a O
 m O
 e O
@@ -36060,6 +36646,8 @@ a B-LOC
 e I-LOC
 n I-LOC
 . O
+
+
 k O
 i O
 l O
@@ -36107,6 +36695,8 @@ i O
 ɗ O
 i O
 . O
+
+
 k O
 a O
 m O
@@ -36165,6 +36755,8 @@ o O
 n O
 i O
 . O
+
+
 t O
 u O
 n O
@@ -36204,6 +36796,8 @@ n O
 ɡ O
 a O
 . O
+
+
 s O
 a O
 ɓ O
@@ -36427,6 +37021,8 @@ a O
 7 I-DATE
 0 I-DATE
 . O
+
+
 i O
 m O
 e O
@@ -36482,6 +37078,8 @@ n I-LOC
 ɗ I-LOC
 c I-LOC
 . O
+
+
 m O
 i O
 p O

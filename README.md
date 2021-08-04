@@ -7,3 +7,9 @@ Data phonemized with epitran, for experiment.
 * data/swa_no_word_boundaries is edited to have character-level labels
 * data/swa_phonemes we used epitran on each word of data/swa. 
 * data/swa_phonemes_no_word_boundaries we took above, and edited it to have character-level labels. 
+
+Did the same for Kinyarwanda:
+* data/kin
+* data/kin_no_word_boundaries
+* data/kin_phonemes
+* data/kin_phonemes_no_word_boundaries
